@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css'
 import { AuthProvider } from './contexts/AuthContext';
 import { ProductsProvider } from './contexts/ProductsContext';
+import { CartProvider } from './contexts/CartContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,7 +15,9 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
         <ProductsProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </ProductsProvider>
       </AuthProvider>
     </BrowserRouter>

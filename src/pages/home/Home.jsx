@@ -1,26 +1,51 @@
 import React, { useContext } from 'react'
 import './Home.css'
-import ProuductsContext from '../../contexts/ProductsContext'
+import CartContext from '../../contexts/CartContext'
+import ProductsContext from '../../contexts/ProductsContext'
 
 function Home() {
+  const { products } = useContext(ProductsContext)
+  const { addToCart } = useContext(CartContext)
 
-  const { products, error, loading } = useContext(ProuductsContext)
-
-  if (loading) return <p>درحال بارگذاری محصولات</p>
-  if (error) return <p>خطا در بارگذاری محصولات</p>
   return (
-    <div className='app my-5'>
-      <div className='row'>
+    <div className="home container my-5">
+
+      {/* Page Title */}
+      <div className="homeHeader text-center mb-5">
+        <h2>Our Products</h2>
+        <p>Choose your favorite product and add it to cart</p>
+      </div>
+
+      {/* Products */}
+      <div className="row d-flex justify-content-evenly">
         {products.map(product => (
-          <div className="card col-xl-4 col-md-2 col-lg-12">
-            <img src={product.img} className="card-img-top w-100 object-fit-contain h-100" alt="..." />
-            <div className="card-body text-center">
-              <h5 className="card-title">{product.title}</h5>
-              <button className="btn btn-primary">Add To Cart</button>
+          <div
+            key={product.id}
+            className="col-xl-3 col-lg-4 col-md-6 mb-4"
+          >
+            <div className="productCard">
+
+              <div className="productImage">
+                <img src={product.img} alt={product.title} />
+              </div>
+
+              <div className="productBody">
+                <h5>{product.title}</h5>
+                <span className="price">${product.price}</span>
+
+                <button
+                  className="btn btn-primary w-100 mt-3"
+                  onClick={() => addToCart(product)}
+                >
+                  Add To Cart
+                </button>
+              </div>
+
             </div>
           </div>
         ))}
       </div>
+
     </div>
   )
 }
