@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/auth-system/static/css/main.c231400b.css",
+    "main.js": "/auth-system/static/js/main.20cbdb53.js",
+    "index.html": "/auth-system/index.html",
+    "main.c231400b.css.map": "/auth-system/static/css/main.c231400b.css.map",
+    "main.20cbdb53.js.map": "/auth-system/static/js/main.20cbdb53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c231400b.css",
+    "static/js/main.20cbdb53.js"
+  ]
+}
