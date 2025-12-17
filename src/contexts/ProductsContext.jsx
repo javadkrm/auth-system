@@ -17,9 +17,9 @@ export function ProductsProvider({ children }) {
 
                 // fake data
                 const fakeProducts = [
-                    { id: 1, title: "LapTop", price: 100, img: `${PUBLIC}images/products/laptop.jpg` },
-                    { id: 2, title: "iPhones", price: 200, img: `${PUBLIC}images/products/iphones.jpg` },
-                    { id: 3, title: "Airpods", price: 300, img: `${PUBLIC}images/products/airpods.jpg` },
+                    { id: 1, title: "LapTop", price: 100, img: `${PUBLIC}/images/products/laptop.jpg` },
+                    { id: 2, title: "iPhones", price: 200, img: `${PUBLIC}/images/products/iphones.jpg` },
+                    { id: 3, title: "Airpods", price: 300, img: `${PUBLIC}/images/products/airpods.jpg` },
                 ];
 
                 // API
