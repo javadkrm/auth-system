@@ -14,16 +14,12 @@ function Dashboard() {
 
   return (
     <div className="dashboard container mt-5">
-
-      {/* Header */}
       <div className="dashboardHeader d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
         <h3>Welcome, <span>{user.name}</span></h3>
         <button className="btn btn-outline-danger mt-2 mt-md-0" onClick={logout}>
           Logout
         </button>
       </div>
-
-      {/* Cart */}
       <div className="cartSection">
         <h5 className="mb-3">Your Cart</h5>
 
@@ -43,6 +39,7 @@ function Dashboard() {
                 </div>
               </div>
             ))}
+          <div className='totalPrice fw-bold'>Total Price: {totalPrice}$</div>
           </div>
         )}
       </div>
