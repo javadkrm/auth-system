@@ -4,6 +4,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { AuthProvider } from './contexts/AuthContext';
 import { ProductsProvider } from './contexts/ProductsContext';
 import { CartProvider } from './contexts/CartContext';

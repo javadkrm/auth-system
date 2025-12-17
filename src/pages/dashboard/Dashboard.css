@@ -5,6 +5,7 @@
 /* Header */
 .dashboardHeader h3 {
   font-weight: 600;
+  font-size: 1.4rem;
 }
 
 .dashboardHeader span {
@@ -20,19 +21,19 @@
 
 /* Cart Card */
 .cartCard {
+  position: relative;
   background: #fff;
   border-radius: 14px;
   padding: 15px;
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 15px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.06);
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .cartCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 .cartCard img {
@@ -52,7 +53,7 @@
 
 .cartInfo h6 {
   margin: 0;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -60,4 +61,51 @@
   color: #198754;
   font-weight: bold;
   margin-top: 6px;
+}
+
+/* Remove Button */
+.removeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.removeBtn:hover {
+  background: #bb2d3b;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboardHeader {
+    text-align: center;
+  }
+  .cartCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .cartCard img {
+    width: 80px;
+    height: 80px;
+  }
+  .removeBtn {
+    top: 5px;
+    right: 5px;
+  }
+  .cartInfo .price {
+    margin-top: 4px;
+  }
 }
