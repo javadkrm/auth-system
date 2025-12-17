@@ -53,8 +53,13 @@ export function AuthProvider({ children }) {
         return {success: true}
     }
 
+    const logout = () => {
+        setUser(null)
+        localStorage.removeItem('user')
+    }
+
     return (
-        <AuthContext.Provider value={{ user, login, register }}>
+        <AuthContext.Provider value={{ user, login, register, logout }}>
             {children}
         </AuthContext.Provider>
     )

@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import './Login.css'
 import AuthContext from '../../contexts/AuthContext'
-import { Navigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 function Login() {
 
-  const {login} = useContext(AuthContext)
-
+  const { login } = useContext(AuthContext)
+  const navigate = useNavigate()
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
   const [error, setError] = useState(null)
@@ -30,7 +30,7 @@ function Login() {
     const result = login(email, password)
 
     if (result) {
-      return <Navigate to={'/dashboard'}/>
+      return navigate('/dashboard')
     } else {
       setError('ایمیل یا رمزعبور اشتباه است')
     }
