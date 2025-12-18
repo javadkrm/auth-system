@@ -1,8 +1,12 @@
+import { publish } from "gh-pages";
 import { createContext, useState, useEffect } from "react";
 
 const ProuductsContext = createContext(null)
 
 const PUBLIC = process.env.PUBLIC_URL || '';
+
+console.log(PUBLIC);
+
 
 export function ProductsProvider({ children }) {
 
