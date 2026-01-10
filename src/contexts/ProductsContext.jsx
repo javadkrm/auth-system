@@ -21,9 +21,18 @@ export function ProductsProvider({ children }) {
 
                 // fake data
                 const fakeProducts = [
-                    { id: 1, title: "LapTop", price: 100, img: `${PUBLIC}/images/products/laptop.jpg` },
-                    { id: 2, title: "iPhones", price: 200, img: `${PUBLIC}/images/products/iphones.jpg` },
-                    { id: 3, title: "Airpods", price: 300, img: `${PUBLIC}/images/products/airpods.jpg` },
+                    { id: 1, title: "HP Zbook G6", price: 100, img: `${PUBLIC}/images/products/laptop.jpg` },
+                    { id: 2, title: "iPhone 17 pro", price: 200, img: `${PUBLIC}/images/products/iphones.jpg` },
+                    { id: 3, title: "Airpod max ", price: 300, img: `${PUBLIC}/images/products/airpods.jpg` },
+                    { id: 4, title: "latop Mac", price: 300, img: `${PUBLIC}/images/products/laptop.jpg` },
+                    { id: 5, title: "iPhone 16", price: 300, img: `${PUBLIC}/images/products/iphones.jpg` },
+                    { id: 6, title: "Airpods mini", price: 300, img: `${PUBLIC}/images/products/airpods.jpg` },
+                    { id: 7, title: "laptop Lenovo", price: 300, img: `${PUBLIC}/images/products/laptop.jpg` },
+                    { id: 8, title: "iPhone 14", price: 120, img: `${PUBLIC}/images/products/iphones.jpg` },
+                    { id: 9, title: "airpod alpha", price: 300, img: `${PUBLIC}/images/products/airpods.jpg` },
+                    { id: 10, title: "laptop mini", price: 300, img: `${PUBLIC}/images/products/laptop.jpg` },
+                    { id: 11, title: "iPhone 13", price: 300, img: `${PUBLIC}/images/products/iphones.jpg` },
+                    { id: 12, title: "airpod apple", price: 300, img: `${PUBLIC}/images/products/airpods.jpg` },
                 ];
 
                 // API

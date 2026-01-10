@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
     const login = (email, password) => {
         const users = JSON.parse(localStorage.getItem('users')) || []
 
-        const foundUser = users.find(user => user.email === email)
+        const foundUser = users.find(user => user.email === email && user.password === password)
 
         if (foundUser) {
             setUser(foundUser)
@@ -50,7 +50,7 @@ export function AuthProvider({ children }) {
         localStorage.setItem('user', JSON.stringify(newUser))
         localStorage.setItem('users', JSON.stringify(users))
 
-        return {success: true}
+        return { success: true }
     }
 
     const logout = () => {
