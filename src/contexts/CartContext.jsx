@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import AuthContext from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const CartContext = createContext()
 
 export function CartProvider({ children }) {
 
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
     const [cartItems, setCartItems] = useState([])
 
     useEffect(() => {
@@ -16,6 +18,8 @@ export function CartProvider({ children }) {
 
         try {
             const savedCarts = localStorage.getItem(`cart_${user.id}`)
+            console.log(user.id);
+            
             const parsed = savedCarts ? JSON.parse(savedCarts) : []
             setCartItems(Array.isArray(parsed) ? parsed : [])
         } catch (err) {
@@ -35,6 +39,7 @@ export function CartProvider({ children }) {
     const addToCart = (product) => {
         if (!user) {
             alert('ابتدا وارد حساب کاربری خود شوید')
+            navigate('/dashboard')
             return false
         }
 

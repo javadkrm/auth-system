@@ -39,6 +39,7 @@ export function AuthProvider({ children }) {
         }
 
         const newUser = {
+            id: Math.floor(Math.random() * 100),
             name,
             email,
             password,

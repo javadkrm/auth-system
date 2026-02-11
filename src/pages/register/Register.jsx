@@ -35,7 +35,7 @@ function Register() {
     }
 
     if (password.length < 4) {
-      return "رمز عبور باید حداقل ۶ کاراکتر باشد";
+      return "رمز عبور باید حداقل 4 کاراکتر باشد";
     }
 
     if (password !== confirmPassword) {

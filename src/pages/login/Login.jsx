@@ -32,7 +32,7 @@ function Login() {
     if (result) {
       return navigate('/dashboard')
     } else {
-      setError('ایمیل یا رمزعبور اشتباه است')
+      setError(' تا بحال ثبت نام نکرده اید ! | ایمیل یا رمزعبور اشتباه است')
     }
     clearInputs()
   }

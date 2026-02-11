@@ -24,7 +24,7 @@ function Navbar() {
                         </ul>
                         <div class="d-flex">
                             {user ? <div className='userName fw-bold'>{user.name}</div> : (
-                                <div className='d-flex'><Link className='text-decoration-none me-1' to={'/login'}>Login</Link>/<Link className='text-decoration-none ms-1' to={'/register'}>Register</Link></div>
+                                <div className='d-flex'><Link className='text-decoration-none me-1 text-dark' to={'/login'}>Login</Link>/<Link className='text-decoration-none ms-1 text-dark' to={'/register'}>Register</Link></div>
                                 )}
                         </div>
                     </div>
