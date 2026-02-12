@@ -34,7 +34,7 @@ export const loginUser = createAsyncThunk<
             );
 
             if (!foundUser) {
-                return thunkAPI.rejectWithValue("Email or password is incorrect");
+                return thunkAPI.rejectWithValue("Email or password is incorrect | Or this Email Not Regisered Yet");
             }
 
             localStorage.setItem("currentUser", JSON.stringify(foundUser));
@@ -59,7 +59,7 @@ export const registerUser = createAsyncThunk<
             const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
 
             if (users.some((user: User) => user.email === userData.email)) {
-                return thunkAPI.rejectWithValue('Email already exists');
+                return thunkAPI.rejectWithValue('Email Already Exists');
             }
 
             const newUser: User = {
