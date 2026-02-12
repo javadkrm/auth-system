@@ -1,12 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import './Register.css'
-import AuthContext from '../../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import { User } from '../../types/user'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../store'
+import { registerUser } from '../../store/slices/authSlice'
 
-function Register() {
+const Register: React.FC = () => {
 
-  const { register } = useContext(AuthContext)
   const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,11 +17,14 @@ function Register() {
     confirmPassword: ''
   })
 
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch<AppDispatch>()
+
+  const { loading } = useSelector((state: RootState) => state.auth);
+
+  const [error, setError] = useState<string | null>(null)
 
 
-  const inputHandler = (event) => {
+  const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
@@ -45,31 +51,26 @@ function Register() {
     return null;
   }
 
-  const submitHandler = (event) => {
+  const submitHandler = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     const validation = validate()
 
     if (validation) {
+
       setError(validation)
       return
     }
 
-    setLoading(true)
-
-
-    const result = register({
+    dispatch(registerUser({
       name: formData.name,
       email: formData.email,
       password: formData.password
-    })
+    }))
+      .unwrap()
+      .then(() => navigate("/dashboard"))
+      .catch(() => {setError('این ایمیل قبلا ثبت شده است')});
 
-    if (!result.success) {
-      setError(result.message)
-      return
-    } else {
-      return navigate('/dashboard')
-    }
   }
 
   return (
@@ -92,7 +93,9 @@ function Register() {
           <label htmlFor="exampleInputPassword1" className="form-label">Confirm Password</label>
           <input name='confirmPassword' value={formData.confirmPassword} type="password" onChange={inputHandler} className="form-control" id="exampleInputPassword1" />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button disabled={loading} type="submit" className="btn btn-primary">
+          {loading ? "Registering..." : "Submit"}
+        </button>
       </form>
     </div>
   )
